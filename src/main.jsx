@@ -8,6 +8,7 @@ import "./index.css";
 import App from './App';
 import Home from './Pages/Home';
 import ErrorPage from './Pages/ErrorPage';
+import Login from './Route/Login';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>,
+      },
+      {
+        path:'/login',
+        element:<Login></Login>,
       },
     ],
     errorElement: <ErrorPage />,
