@@ -35,7 +35,7 @@ const Login = () => {
             <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center">Login</h1>
             <div className="grid grid-cols-1 lg:grid-cols-2 bg-gray-100">
                 <div className="max-sm:hidden h-[80vh]">
-                    <Lottie animationData={login} loop={true} />;
+                    <Lottie animationData={login} loop={true} />
                 </div>
                 <div className="h-[100vh] py-auto">
                     <form onSubmit={handelLoginUser} className="h-[80vh] bg-white shadow-lg border-[1px] border-gray-400 rounded px-8 py-[20%]">
