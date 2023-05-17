@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGoogle } from "react-icons/fa";
 import Lottie from "lottie-react";
 import register from "../../public/105648-registration-form.json";
 import { Link } from 'react-router-dom';
+import { AuthContext } from './AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const [error, setError] = useState('')
     const [checked, setChecked] = useState(false);
+    const {newUserSingUp} = useContext(AuthContext)
 
 
     const handelRegister = (event) => {
@@ -26,7 +29,41 @@ const Register = () => {
             photo,
             password,
         }
-        console.log(userInput);
+        newUserSingUp(email, password)
+        .then((result) => {
+            // Signed in 
+            const user = result.user;
+            console.log(user);
+            // ...
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'center',
+                showConfirmButton: false,
+                timer: 1000,
+                // timerProgressBar: true,
+              })
+              Toast.fire({
+                icon: 'success',
+                title: 'Signed in successfully'
+              })
+            
+          })
+          .catch((error) => {
+            const errorMessage = error.message;
+            setError(errorMessage)
+            // ..
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'center',
+                showConfirmButton: false,
+                timer: 1000,
+                // timerProgressBar: true,
+              })
+              Toast.fire({
+                icon: 'error',
+                title: 'Signed in error'
+              })
+          });
     }
 
     const handelCheck = () => {

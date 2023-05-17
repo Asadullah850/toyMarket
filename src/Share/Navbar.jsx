@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaRegUser } from "react-icons/fa";
+import { AuthContext } from '../Route/AuthProvider';
 
 
 const Navbar = () => {
@@ -11,6 +12,9 @@ const Navbar = () => {
         { label: 'Add A Toy', url: '/' },
         { label: 'Blogs', url: '/' },
     ]
+
+    const { user } = useContext(AuthContext);
+    console.log(user);
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
