@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 const Register = () => {
     const [error, setError] = useState('')
     const [checked, setChecked] = useState(false);
-    const {newUserSingUp} = useContext(AuthContext)
+    const { newUserSingUp, googleNewUser } = useContext(AuthContext);
 
 
     const handelRegister = (event) => {
@@ -30,10 +30,47 @@ const Register = () => {
             password,
         }
         newUserSingUp(email, password)
+            .then((result) => {
+                // Signed in 
+                const user = result.user;
+                console.log(user);
+                // ...
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'center',
+                    showConfirmButton: false,
+                    timer: 1000,
+                    // timerProgressBar: true,
+                })
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Signed in successfully'
+                })
+
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setError(errorMessage)
+                // ..
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'center',
+                    showConfirmButton: false,
+                    timer: 1000,
+                    // timerProgressBar: true,
+                })
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Signed in error'
+                })
+            });
+    }
+
+    const googleSingIn=()=>{
+        googleNewUser()
         .then((result) => {
-            // Signed in 
             const user = result.user;
-            console.log(user);
+            // IdP data available using getAdditionalUserInfo(result)
             // ...
             const Toast = Swal.mixin({
                 toast: true,
@@ -41,28 +78,14 @@ const Register = () => {
                 showConfirmButton: false,
                 timer: 1000,
                 // timerProgressBar: true,
-              })
-              Toast.fire({
+            })
+            Toast.fire({
                 icon: 'success',
                 title: 'Signed in successfully'
-              })
-            
-          })
-          .catch((error) => {
+            })
+          }).catch((error) => {
             const errorMessage = error.message;
             setError(errorMessage)
-            // ..
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'center',
-                showConfirmButton: false,
-                timer: 1000,
-                // timerProgressBar: true,
-              })
-              Toast.fire({
-                icon: 'error',
-                title: 'Signed in error'
-              })
           });
     }
 
@@ -163,6 +186,7 @@ const Register = () => {
                                 Register
                             </button>
                             <button
+                                onClick={googleSingIn}
                                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex text-lg my-auto"
                             >
                                 <FaGoogle className='h-6 mr-2'></FaGoogle> SingIn Google

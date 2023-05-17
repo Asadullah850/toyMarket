@@ -13,8 +13,17 @@ const Navbar = () => {
         { label: 'Blogs', url: '/' },
     ]
 
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     console.log(user);
+
+    const userLogOut =()=>{
+        logOut()
+        .then(() => {
+            // Sign-out successful.
+          }).catch((error) => {
+            // An error happened.
+          });
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -43,20 +52,30 @@ const Navbar = () => {
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle border-[1px] border-blue-800 avatar">
                         <div className="w-10 rounded-full">
-                            <FaRegUser className='w-[100%] h-[80%]'></FaRegUser>
+                            {
+                                user ? user.photoURL ? <><img src={user.photoURL} alt="" srcset="" /></> : <FaRegUser className='w-[100%] h-[80%]'></FaRegUser> : <FaRegUser className='w-[100%] h-[80%]'></FaRegUser>
+                            }
+
                         </div>
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li>
-                            <a className="justify-between">
-                                Profile
-                            </a>
+                        <li className='text-start'>
+                            {
+                                user ?
+                                    <>
+                                        <p>{user.displayName || user.email}</p>
+                                        <Link to='/'>My Toys</Link>
+                                        <button onClick={userLogOut} >Logout</button>
+                                    </>
+                                    :
+                                    <>
+                                        <Link to='/login' className="">Login</Link>
+                                        <Link to='register'>Registration</Link>
+                                    </>
+                            }
                         </li>
-                        <li><Link to='/login' className="">Login</Link></li>
-                        <li><Link to='register'>Registration</Link></li>
-                        <li><Link to='/'>Post Events</Link></li>
-                        <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
+
+
                     </ul>
                 </div>
             </div>

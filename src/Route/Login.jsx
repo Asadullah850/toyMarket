@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { FaGoogle } from "react-icons/fa";
 import Lottie from "lottie-react";
 import login from "../../public/login-and-sign-up.json";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { AuthContext } from './AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('')
+    const { googleNewUser } = useContext(AuthContext)
+    const location = useLocation()
 
     const handelLoginUser = (event) => {
         event.preventDefault();
@@ -16,19 +20,31 @@ const Login = () => {
             email, password
         }
         setError('')
-
-        // userSingIn(email, password)
-        //     .then((res) => {
-        //         // Signed in 
-        //         const user = res.user;
-        //         navigate(from, { replace: true });
-        //     })
-        //     .catch((error) => {
-        //         const errorMessage = error.message;
-        //         setError(errorMessage)
-        //     });
-        console.log(userData);
     }
+
+    const googleLogin = () => {
+        googleNewUser()
+            .then((result) => {
+                const user = result.user;
+                // IdP data available using getAdditionalUserInfo(result)
+                // ...
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'center',
+                    showConfirmButton: false,
+                    timer: 1000,
+                    // timerProgressBar: true,
+                })
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Signed in successfully'
+                })
+            }).catch((error) => {
+                const errorMessage = error.message;
+                setError(errorMessage)
+            });
+    }
+
 
     return (
         <div>
@@ -38,7 +54,7 @@ const Login = () => {
                     <Lottie animationData={login} loop={true} />
                 </div>
                 <div className="h-[100vh] py-auto">
-                    <form onSubmit={handelLoginUser} className="h-[80vh] bg-white shadow-lg border-[1px] border-gray-400 rounded px-8 py-[20%]">
+                    <form onSubmit={handelLoginUser} className="h-[60vh] bg-white shadow-lg border-[1px] border-gray-400 rounded px-8 py-[20%]">
                         <div className="mb-4">
                             <label className="block text-gray-700 font-bold mb-2" >
                                 Email
@@ -48,7 +64,6 @@ const Login = () => {
                                 name='email'
                                 placeholder='example@example.com'
                                 type="email"
-                                required
                             />
                         </div>
                         <div className="mb-6">
@@ -60,7 +75,6 @@ const Login = () => {
                                 type="password"
                                 name='password'
                                 placeholder="Enter password"
-                                required
                             />
                         </div>
                         <p className="ml-end text-blue-700 my-4">{error}</p>
@@ -75,6 +89,7 @@ const Login = () => {
                                 Sign In
                             </button>
                             <button
+                                onClick={googleLogin}
                                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex text-lg my-auto">
                                 <FaGoogle className='h-6 mr-2'></FaGoogle> SingIn Google
                             </button>
