@@ -11,6 +11,8 @@ import ErrorPage from './Pages/ErrorPage';
 import Login from './Route/Login';
 import Register from './Route/Register';
 import AuthProvider from './Route/AuthProvider';
+import AddToys from './Pages/AddToys';
+import PrivetRoute from './Route/PrivetRoute';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>,
+      },
+      {
+        path: '/addToy',
+        element: <PrivetRoute><AddToys></AddToys></PrivetRoute>,
       },
     ],
     errorElement: <ErrorPage />,

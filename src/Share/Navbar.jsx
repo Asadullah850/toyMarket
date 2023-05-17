@@ -9,7 +9,7 @@ const Navbar = () => {
         { label: 'Home', url: '/' },
         { label: 'All Toys', url: '/' },
         { label: 'My Toys', url: '/' },
-        { label: 'Add A Toy', url: '/' },
+        { label: 'Add A Toy', url: '/addToy' },
         { label: 'Blogs', url: '/' },
     ]
 
@@ -38,7 +38,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <a className=" bg-none w-56">
-                    <Link className="btn btn-ghost text-xl font-press-start font-bold" to='/'>Toy-Markets</Link>
+                    <Link className="btn btn-ghost lg:text-xl  font-press-start font-bold" to='/'>Toy-Markets</Link>
                 </a>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -63,7 +63,7 @@ const Navbar = () => {
                             {
                                 user ?
                                     <>
-                                        <p>{user.displayName || user.email}</p>
+                                        <p>Name: {user.displayName || user.email}</p>
                                         <Link to='/'>My Toys</Link>
                                         <button onClick={userLogOut} >Logout</button>
                                     </>

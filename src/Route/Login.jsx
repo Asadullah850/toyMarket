@@ -2,14 +2,18 @@ import React, { useState, useContext } from 'react';
 import { FaGoogle } from "react-icons/fa";
 import Lottie from "lottie-react";
 import login from "../../public/login-and-sign-up.json";
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from './AuthProvider';
 
 const Login = () => {
-    const [error, setError] = useState('')
-    const { googleNewUser } = useContext(AuthContext)
-    const location = useLocation()
+    const [error, setError] = useState('');
+    const { googleNewUser, loginUser } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+
+    const from = location.state?.from?.pathname || '/';
 
     const handelLoginUser = (event) => {
         event.preventDefault();
@@ -20,6 +24,28 @@ const Login = () => {
             email, password
         }
         setError('')
+        loginUser(email, password)
+        .then((result) => {
+            const user = result.user;
+            // IdP data available using getAdditionalUserInfo(result)
+            // ...
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-center',
+                showConfirmButton: false,
+                timer: 800,
+                // timerProgressBar: true,
+            })
+            Toast.fire({
+                icon: 'success',
+                title: 'Signed in successfully'
+            })
+            navigate(from, { replace: true})
+        }).catch((error) => {
+            const errorMessage = error.message;
+            setError(errorMessage)
+        });
+
     }
 
     const googleLogin = () => {
@@ -30,15 +56,16 @@ const Login = () => {
                 // ...
                 const Toast = Swal.mixin({
                     toast: true,
-                    position: 'center',
+                    position: 'top-center',
                     showConfirmButton: false,
-                    timer: 1000,
+                    timer: 800,
                     // timerProgressBar: true,
                 })
                 Toast.fire({
                     icon: 'success',
                     title: 'Signed in successfully'
                 })
+                navigate(from, { replace: true})
             }).catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage)
