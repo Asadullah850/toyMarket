@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaGoogle } from "react-icons/fa";
 import Lottie from "lottie-react";
 import login from "../../public/login-and-sign-up.json";
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [error, setError] = useState('')
@@ -11,7 +12,7 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        const userData ={
+        const userData = {
             email, password
         }
         setError('')
@@ -47,6 +48,7 @@ const Login = () => {
                                 name='email'
                                 placeholder='example@example.com'
                                 type="email"
+                                required
                             />
                         </div>
                         <div className="mb-6">
@@ -58,9 +60,13 @@ const Login = () => {
                                 type="password"
                                 name='password'
                                 placeholder="Enter password"
+                                required
                             />
                         </div>
-                        <p>{error}</p>
+                        <p className="ml-end text-blue-700 my-4">{error}</p>
+                        <div className="ml-end text-blue-700 my-4">
+                            <Link to='/register' className="underline">I Have No Account</Link>.
+                        </div>
                         <div className="flex items-center justify-between">
                             <button
                                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
