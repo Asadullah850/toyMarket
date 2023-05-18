@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from '../Route/AuthProvider';
 import Select from 'react-select';
 import Creatable, { useCreatable } from 'react-select/creatable';
+import Swal from 'sweetalert2';
 
 const options = [
     { value: 'Red', label: 'Red' },
@@ -18,8 +19,8 @@ const discountPrice = [
 const AddToys = () => {
     const { user } = useContext(AuthContext);
     const [selectedOption, setSelectedOption] = useState(null)
-    const [ discount, setDiscount] = useState(null)
-    
+    const [discount, setDiscount] = useState(null)
+
 
     const { register,
         handleSubmit,
@@ -29,7 +30,36 @@ const AddToys = () => {
     const onSubmit = data => {
         data.colors = selectedOption
         data.discount = discount
-        console.log(data);
+
+        fetch(`http://localhost:3000/products`, {
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(results => {
+                if (results.acknowledged) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 1000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Add Toy in successfully'
+                    })
+                }
+            })
+
     }
 
     return (
@@ -62,7 +92,7 @@ const AddToys = () => {
                         {errors.exampleRequired && <p>* Required</p>}
                         <input className=' border-2 border-blue-400 rounded p-2' {...register("productImg", { required: true })} />
                         <br />
-                        <p>Discount</p>
+                        <p>Discount %</p>
                         <Creatable className=' border-2 border-blue-400 rounded p-2'
                             defaultValue={selectedOption}
                             onChange={setDiscount}
