@@ -9,9 +9,6 @@ export default {
       fontFamily: {
         'press-start': ['"Press Start 2P"', 'cursive'],
       },
-      backgroundImage: {
-        'hero-pattern': "url('https://i.ibb.co/9TsK5Wm/404.gif')",
-      }
     },
   },
   // eslint-disable-next-line no-undef
