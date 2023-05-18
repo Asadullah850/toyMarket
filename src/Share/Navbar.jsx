@@ -7,14 +7,13 @@ import { AuthContext } from '../Route/AuthProvider';
 const Navbar = () => {
     const navItems = [
         { label: 'Home', url: '/' },
-        { label: 'All Toys', url: '/' },
-        { label: 'My Toys', url: '/' },
+        { label: 'All Toys', url: '/allProducts' },
+        { label: 'My Toys', url: '#' },
         { label: 'Add A Toy', url: '/addToy' },
-        { label: 'Blogs', url: '/' },
+        { label: 'Blogs', url: '#' },
     ]
 
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
 
     const userLogOut =()=>{
         logOut()

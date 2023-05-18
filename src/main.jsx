@@ -13,6 +13,8 @@ import Register from './Route/Register';
 import AuthProvider from './Route/AuthProvider';
 import AddToys from './Pages/AddToys';
 import PrivetRoute from './Route/PrivetRoute';
+import ProductsAll from './Pages/ProductsAll';
+import ViewDetails from './Pages/ViewDetails';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
       {
         path: '/addToy',
         element: <PrivetRoute><AddToys></AddToys></PrivetRoute>,
+      },
+      {
+        path: '/allProducts',
+        element: <ProductsAll></ProductsAll>,
+      },
+      {
+        path: '/viewPage/:id',
+        element: <ViewDetails></ViewDetails>,
       },
     ],
     errorElement: <ErrorPage />,

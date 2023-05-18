@@ -92,6 +92,10 @@ const AddToys = () => {
                         {errors.exampleRequired && <p>* Required</p>}
                         <input className=' border-2 border-blue-400 rounded p-2' {...register("productImg", { required: true })} />
                         <br />
+                        <p>Rating*</p>
+                        {errors.exampleRequired && <p>* Required</p>}
+                        <input type='text' className=' border-2 border-blue-400 rounded p-2' {...register("rating", { required: true })} />
+                        <br />
                         <p>Discount %</p>
                         <Creatable className=' border-2 border-blue-400 rounded p-2'
                             defaultValue={selectedOption}
@@ -110,8 +114,8 @@ const AddToys = () => {
                         <br />
                         <p>Sub-category*</p>
                         {errors.exampleRequired && <p>* Required</p>}
-                        <select className=' border-2 border-blue-400 rounded p-2' {...register("category", { required: true })}>
-                            <option value="ToyCars">Sports Car</option>
+                        <select className=' border-2 border-blue-400 rounded p-2' {...register("Subcategory", { required: true })}>
+                            <option value="Cars">Sports Car</option>
                             <option value="truck">Truck</option>
                             <option value="miniPoliceCar">Mini Police Car</option>
                             <option value="avengers">Avengers</option>
