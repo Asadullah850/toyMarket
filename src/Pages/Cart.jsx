@@ -2,7 +2,7 @@ import React from 'react';
 
 const Cart = ({ toys }) => {
     const { _id, productPrice, productName, productDescription, productImg, photoURL, displayName, discount, colors, category, AvailableQuantity } = toys
-    console.log(toys);
+    
     return (
         <div className="card card-compact w-full bg-base-100 shadow-xl">
             <div className="w-full  rounded-lg">

@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import App from './App';
-import Home from './Pages/Home';
+import Home from './Pages/Home/Home';
 import ErrorPage from './Pages/ErrorPage';
 import Login from './Route/Login';
 import Register from './Route/Register';
