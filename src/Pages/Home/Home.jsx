@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Cart from '../Cart';
 import Banner from './Banner';
 import Gallery from './Gallery';
+import ShopByCategory from './ShopByCategory';
 
 const Home = () => {
     const [toysData, setToysData] = useState([])
@@ -29,6 +30,9 @@ const Home = () => {
             {/* {
                 toysData.map(toys => <Cart toys={toys} key={toys._id}></Cart>)
             } */}
+            <h1 className='text-2xl lg:text-4xl px-[2%] mx-2 mt-10 text-center'>Shop by category</h1>
+            <ShopByCategory></ShopByCategory>
+            
            
         </div>
     );

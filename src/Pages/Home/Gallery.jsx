@@ -43,7 +43,7 @@ const Gallery = () => {
                 centeredSlides={true}
                 slidesPerView={"auto"}
                 autoplay={{
-                    delay: 2500,
+                    delay: 1500,
                     disableOnInteraction: false,
                 }}
                 coverflowEffect={{
