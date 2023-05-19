@@ -8,8 +8,8 @@ const Footer = () => {
         <p className='text-center mt-10 font-extrabold text-lg mb-2'>Subscribe</p>
         <hr  className=' my-4 h-1 bg-blue-200' />
             <div className="relative mb-10">
-                <img className='h-40 relative w-[80%] mx-auto' src="https://i.ibb.co/dJVvpPv/louis-magnotti-r-Ecn8-OB83-EI-unsplash.jpg" alt="" srcset="" />
-                <div className="absolute top-0 right-1/3 w-96 rounded-lg bg-blue-700/40 p-8">
+                <img className='h-40 relative w-[80%] max-sm:w-[100%] mx-auto' src="https://i.ibb.co/dJVvpPv/louis-magnotti-r-Ecn8-OB83-EI-unsplash.jpg" alt="" srcset="" />
+                <div className="absolute top-0 right-0 lg:right-1/3 w-full lg:w-96 rounded-lg bg-blue-700/40 p-8">
                     <p className=" font-bold">Newsletter</p>
                     <p className="label-text font-extrabold text-white">Enter your email address</p>
                     <div className="relative">
