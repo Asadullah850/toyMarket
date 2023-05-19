@@ -45,7 +45,7 @@ const ShopByCategory = () => {
                         <TabPanel>
                             <div className=" grid grid-cols-2 gap-4">
                                 {
-                                    data.slice(0,2).map(toys => <Cart key={toys._id} toys={toys}></Cart>)
+                                    data.map(toys => <Cart key={toys._id} toys={toys}></Cart>)
                                 }
                             </div>
 
@@ -53,7 +53,7 @@ const ShopByCategory = () => {
                         <TabPanel >
                         <div className=" grid grid-cols-2 gap-4">
                                 {
-                                    data.slice(0,2).map(toys => <Cart key={toys._id} toys={toys}></Cart>)
+                                    data.map(toys => <Cart key={toys._id} toys={toys}></Cart>)
                                 }
                             </div>
                         </TabPanel>
@@ -68,14 +68,14 @@ const ShopByCategory = () => {
                         <TabPanel>
                         <div className=" grid grid-cols-2 gap-4">
                                 {
-                                    data.slice(0,2).map(toys => <Cart key={toys._id} toys={toys}></Cart>)
+                                    data.map(toys => <Cart key={toys._id} toys={toys}></Cart>)
                                 }
                             </div>
                         </TabPanel>
                         <TabPanel>
                         <div className=" grid grid-cols-2 gap-4">
                                 {
-                                    data.slice(0,2).map(toys => <Cart key={toys._id} toys={toys}></Cart>)
+                                    data.map(toys => <Cart key={toys._id} toys={toys}></Cart>)
                                 }
                             </div>
                         </TabPanel>
@@ -90,14 +90,14 @@ const ShopByCategory = () => {
                         <TabPanel>
                         <div className=" grid grid-cols-2 gap-4">
                                 {
-                                    data.slice(0,2).map(toys => <Cart key={toys._id} toys={toys}></Cart>)
+                                    data.map(toys => <Cart key={toys._id} toys={toys}></Cart>)
                                 }
                             </div>
                         </TabPanel>
                         <TabPanel>
                         <div className=" grid grid-cols-2 gap-4">
                                 {
-                                    data.slice(0,2).map(toys => <Cart key={toys._id} toys={toys}></Cart>)
+                                    data.map(toys => <Cart key={toys._id} toys={toys}></Cart>)
                                 }
                             </div>
                         </TabPanel>

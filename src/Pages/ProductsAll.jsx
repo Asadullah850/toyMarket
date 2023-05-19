@@ -1,21 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import Table from './Table';
+import { useLoaderData } from 'react-router-dom';
 
 const ProductsAll = () => {
     const [allToys, setAlltoys] = useState([])
     const [loading, setloadng] = useState(true)
     const [search, setSearch] = useState("")
+    const [currentPage, setCurrentPage] = useState(0)
+    const { totalProducts } = useLoaderData();
+
+    const itemsPerPage = 10;
+    const totalPage = Math.ceil(totalProducts / itemsPerPage)
+
+    const pageNumber = [...Array(totalPage).keys()]
 
 
+
+    const [page, setPage] = useState(1)
+    const [limit, setLimit] = useState(10)
+
+
+    // useEffect(() => {
+    //     fetch(`http://localhost:3000/allToys`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setAlltoys(data)
+    //             setloadng(false)
+
+    //         })
+    // }, [])
     useEffect(() => {
-        fetch(`http://localhost:3000/allToys`)
-            .then(res => res.json())
-            .then(data => {
-                setAlltoys(data)
-                setloadng(false)
+        async function fetchData() {
+            const response = await fetch(`http://localhost:3000/toys?page=${currentPage}&limit=${itemsPerPage}`)
 
-            })
-    }, [])
+            const data = await response.json();
+            setAlltoys(data)
+        }
+        fetchData();
+    }, [currentPage, itemsPerPage])
+
+
 
 
     const handelsearch = (text) => {
@@ -54,6 +78,16 @@ const ProductsAll = () => {
                     }
                 </tbody>
             </table>
+            <div className=" text-center">
+                <p>Current Page: {currentPage} and Items per page: {itemsPerPage}</p>
+                {
+                    pageNumber.map(number => <button
+                        key={number}
+                        className={currentPage === number ? `btn w-10 mx-1 bg-[#0e1cbf]` : `btn w-10 mx-1`}
+                        onClick={() => setCurrentPage(number)}
+                    >{number}</button>)
+                }
+            </div>
         </div>
     );
 };

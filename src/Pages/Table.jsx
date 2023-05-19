@@ -15,7 +15,7 @@ const Table = ({ index, table }) => {
             <td>{AvailableQuantity} P</td>
             <td>
                 {
-                    colors.map((td, index) => <p key={index}>{td.value}</p>)
+                    colors?.map((td, index) => <p key={index}>{td.value}</p>)
                 }
             </td>
             <td><Link to={`/viewPage/${_id}`}><button className='btn'>View</button></Link></td>
