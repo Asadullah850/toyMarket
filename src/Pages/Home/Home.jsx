@@ -12,7 +12,11 @@ import 'aos/dist/aos.css';
 const Home = () => {
     useTitle('Home');
     const [toysData, setToysData] = useState([])
-    const [loading, setloadng] = useState(true)
+    const [loading, setLoading] = useState(true)
+    const [data, setData] = useState([]);
+    const [category, setCategory] = useState("ToyCars")
+    const [dollData, setDollData] = useState([]);
+    const [categoryDoll, setCategoryDoll] = useState("Dolls")
     // console.log(allToys);
 
     if (loading) {
@@ -24,22 +28,29 @@ const Home = () => {
             .then(res => res.json())
             .then(data => {
                 setToysData(data)
-                setloadng(false)
+                setLoading(false)
 
             })
     }, [])
-
-    const [data, setData] = useState([]);
-    const [category, setCategory] = useState("ToyCars")
 
     useEffect(() => {
         fetch(`http://localhost:3000/category/${category}`)
             .then((res) => res.json())
             .then((result) => {
                 setData(result);
-                setloadng(false)
+                setLoading(false)
             });
     }, [category]);
+    // ActionFigureToys
+    useEffect(() => {
+        fetch(`http://localhost:3000/category/${categoryDoll}`)
+            .then((res) => res.json())
+            .then((result) => {
+                setDollData(result)
+                setLoading(false)
+            });
+    }, [categoryDoll]);
+    // ActionFigureToys
 
     AOS.init();
     return (
@@ -57,8 +68,18 @@ const Home = () => {
                 data.slice(0, 8).map(toys => <Cart toys={toys} key={toys._id}></Cart>)
             }
            </div>
+
+           <ShopByCategory></ShopByCategory>
+
+            <h1 className='text-2xl lg:text-4xl px-[2%] mx-2 my-10 underline text-blue-600'>Doll Section</h1>
+           <div  data-aos="flip-left" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+             {
+                dollData.slice(4, 8).map(toys => <Cart toys={toys} key={toys._id}></Cart>)
+            }
+           </div>
+
             <h1 className='text-2xl lg:text-4xl px-[2%] mx-2 mt-10 text-center'>Shop by category</h1>
-            <ShopByCategory></ShopByCategory>
+            
             
            
         </div>
