@@ -4,6 +4,7 @@ import Select from 'react-select';
 import Creatable, { useCreatable } from 'react-select/creatable';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Route/AuthProvider';
+import useTitle from '../hooks/useTitle';
 
 const options = [
     { value: 'Red', label: 'Red' },
@@ -17,6 +18,7 @@ const discountPrice = [
 ];
 
 const AddToys = () => {
+    useTitle("PostToy")
     const { user } = useContext(AuthContext)
     const [selectedOption, setSelectedOption] = useState(null)
     const [discount, setDiscount] = useState(null)

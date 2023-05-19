@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Table from './Table';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../hooks/useTitle';
 
 const ProductsAll = () => {
+    useTitle("AllToys")
     const [allToys, setAlltoys] = useState([])
     const [loading, setloadng] = useState(true)
     const [search, setSearch] = useState("")
@@ -18,6 +20,7 @@ const ProductsAll = () => {
     const [limit, setLimit] = useState(10)
 
     useEffect(() => {
+        
         async function fetchData() {
             const response = await fetch(`http://localhost:3000/toys?page=${currentPage}&limit=${itemsPerPage}`)
 
@@ -26,8 +29,6 @@ const ProductsAll = () => {
         }
         fetchData();
     }, [currentPage, itemsPerPage])
-
-
 
 
     const handelsearch = (text) => {

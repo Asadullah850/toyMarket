@@ -13,6 +13,7 @@ import "./gallery.css";
 import { Autoplay, EffectCoverflow, Pagination } from "swiper";
 
 const Gallery = () => {
+    
     const [loading, setloadng] = useState(true);
     const [galleryData, setData] = useState([]);
 

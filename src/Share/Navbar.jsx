@@ -10,7 +10,7 @@ const Navbar = () => {
         { label: 'All Toys', url: '/allProducts' },
         { label: 'My Toys', url: '/mytoys' },
         { label: 'Add A Toy', url: '/addToy' },
-        { label: 'Blogs', url: '#' },
+        { label: 'Blogs', url: '/blog' },
     ]
 
     const { user, logOut } = useContext(AuthContext);

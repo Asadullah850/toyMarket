@@ -4,8 +4,11 @@ import Cart from '../Cart';
 import Banner from './Banner';
 import Gallery from './Gallery';
 import ShopByCategory from './ShopByCategory';
+import useTitle from '../../hooks/useTitle';
+
 
 const Home = () => {
+    useTitle('Home');
     const [toysData, setToysData] = useState([])
     const [loading, setloadng] = useState(true)
     // console.log(allToys);

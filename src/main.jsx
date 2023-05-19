@@ -17,6 +17,7 @@ import ProductsAll from './Pages/ProductsAll';
 import ViewDetails from './Pages/ViewDetails';
 import MyToys from './Pages/MyToys/MyToys';
 import UpdateToys from './Pages/MyToys/UpdateToys';
+import Blog from './Blog';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
         path: '/allProducts',
         element: <ProductsAll></ProductsAll>,
         loader:() => fetch(`http://localhost:3000/totalProducts`)
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>,
       },
       {
         path: '/viewPage/:id',
