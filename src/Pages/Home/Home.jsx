@@ -5,6 +5,8 @@ import Banner from './Banner';
 import Gallery from './Gallery';
 import ShopByCategory from './ShopByCategory';
 import useTitle from '../../hooks/useTitle';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Home = () => {
@@ -27,16 +29,34 @@ const Home = () => {
             })
     }, [])
 
+    const [data, setData] = useState([]);
+    const [category, setCategory] = useState("ToyCars")
+
+    useEffect(() => {
+        fetch(`http://localhost:3000/category/${category}`)
+            .then((res) => res.json())
+            .then((result) => {
+                setData(result);
+                setloadng(false)
+            });
+    }, [category]);
+
+    AOS.init();
     return (
+        
         <div>
             <Banner></Banner>
             <div className="">
                 <h1 className='text-2xl lg:text-4xl px-[2%] mx-2 mt-10 text-center'>Gallery Section</h1>
             </div>
             <Gallery></Gallery>
-            {/* {
-                toysData.map(toys => <Cart toys={toys} key={toys._id}></Cart>)
-            } */}
+
+            <h1 className='text-2xl lg:text-4xl px-[2%] mx-2 my-10 underline text-blue-600'>Cars Section</h1>
+           <div  data-aos="fade-right" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+             {
+                data.slice(0, 8).map(toys => <Cart toys={toys} key={toys._id}></Cart>)
+            }
+           </div>
             <h1 className='text-2xl lg:text-4xl px-[2%] mx-2 mt-10 text-center'>Shop by category</h1>
             <ShopByCategory></ShopByCategory>
             
