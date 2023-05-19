@@ -1,16 +1,9 @@
 import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 
 const Table = ({ index, table }) => {
-    // const navigate = useNavigate()
     const { _id, productPrice, productName, productDescription, productImg, photoURL, displayName, email, discount, colors, category, Subcategory, AvailableQuantity } = table;
 
-    // const handelView =(id)=>{
-    //     console.log(id);
-    //     // navigate('/viewPage')
-    // onClick={()=>handelView(_id)}
-        
-    // }
 
     return (
         <tr>
