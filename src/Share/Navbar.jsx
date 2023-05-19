@@ -8,7 +8,7 @@ const Navbar = () => {
     const navItems = [
         { label: 'Home', url: '/' },
         { label: 'All Toys', url: '/allProducts' },
-        { label: 'My Toys', url: '#' },
+        { label: 'My Toys', url: '/mytoys' },
         { label: 'Add A Toy', url: '/addToy' },
         { label: 'Blogs', url: '#' },
     ]

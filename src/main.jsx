@@ -15,6 +15,7 @@ import AddToys from './Pages/AddToys';
 import PrivetRoute from './Route/PrivetRoute';
 import ProductsAll from './Pages/ProductsAll';
 import ViewDetails from './Pages/ViewDetails';
+import MyToys from './Pages/MyToys/MyToys';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: '/addToy',
         element: <PrivetRoute><AddToys></AddToys></PrivetRoute>,
+      },
+      {
+        path: '/mytoys',
+        element: <PrivetRoute><MyToys></MyToys></PrivetRoute>,
       },
       {
         path: '/allProducts',
