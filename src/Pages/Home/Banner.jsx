@@ -41,7 +41,7 @@ const Banner = () => {
                 spaceBetween={30}
                 centeredSlides={true}
                 autoplay={{
-                    delay: 2500,
+                    delay: 2000,
                     disableOnInteraction: false,
                 }}
                 pagination={{
@@ -59,8 +59,8 @@ const Banner = () => {
                             <img src={banner.productImg} alt="" srcset="" />
                         </div>
                         <div className=" absolute w-full bottom-10">
-                            <p className='lg:mb-10 w-full lg:text-6xl md:text-4xl text-xl text-pink-800 font-semibold text-start px-[10%]'>{banner.productName}</p>
-                            <div className="">
+                            <p className='lg:mb-10 w-full lg:text-4xl md:text-4xl text-xl text-pink-800 font-semibold text-start px-[10%]'>{banner.productName}</p>
+                            <div className="text-start lg:ml-20 ml-4">
                                 <button className="btn btn-secondary lg:px-10 text-lg">discount<span className='lg:mx-4 mx-2 font-extrabold text-4xl'> {banner.discount.value}%</span></button>
                             </div>
                         </div>

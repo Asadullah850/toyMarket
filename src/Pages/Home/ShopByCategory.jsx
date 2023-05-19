@@ -11,7 +11,6 @@ const ShopByCategory = () => {
 
     if (loading) {
         <p>loading....................</p>
-        console.log(data);
     }
 
     useEffect(() => {
@@ -43,17 +42,17 @@ const ShopByCategory = () => {
                             <Tab onClick={() => handelSubCategoryChange("truck")}>Truck</Tab>
                         </TabList>
                         <TabPanel>
-                            <div className=" grid grid-cols-2 gap-4">
+                            <div className=" grid grid-cols-3 gap-4">
                                 {
-                                    data.map(toys => <Cart key={toys._id} toys={toys}></Cart>)
+                                    data.slice(0, 3).map(toys => <Cart key={toys._id} toys={toys}></Cart>)
                                 }
                             </div>
 
                         </TabPanel>
                         <TabPanel >
-                        <div className=" grid grid-cols-2 gap-4">
+                        <div className=" grid grid-cols-3 gap-4">
                                 {
-                                    data.map(toys => <Cart key={toys._id} toys={toys}></Cart>)
+                                    data.slice(0, 3).map(toys => <Cart key={toys._id} toys={toys}></Cart>)
                                 }
                             </div>
                         </TabPanel>
@@ -66,16 +65,16 @@ const ShopByCategory = () => {
                             <Tab onClick={() => handelSubCategoryChange("transformers")}>Transformers</Tab>
                         </TabList>
                         <TabPanel>
-                        <div className=" grid grid-cols-2 gap-4">
+                        <div className=" grid grid-cols-3 gap-4">
                                 {
-                                    data.map(toys => <Cart key={toys._id} toys={toys}></Cart>)
+                                    data.slice(0, 3).map(toys => <Cart key={toys._id} toys={toys}></Cart>)
                                 }
                             </div>
                         </TabPanel>
                         <TabPanel>
-                        <div className=" grid grid-cols-2 gap-4">
+                        <div className=" grid grid-cols-3 gap-4">
                                 {
-                                    data.map(toys => <Cart key={toys._id} toys={toys}></Cart>)
+                                    data.slice(0, 3).map(toys => <Cart key={toys._id} toys={toys}></Cart>)
                                 }
                             </div>
                         </TabPanel>
@@ -88,16 +87,16 @@ const ShopByCategory = () => {
                             <Tab onClick={() => handelSubCategoryChange("AmericanGirl")}>American girl</Tab>
                         </TabList>
                         <TabPanel>
-                        <div className=" grid grid-cols-2 gap-4">
+                        <div className=" grid grid-cols-3 gap-4">
                                 {
-                                    data.map(toys => <Cart key={toys._id} toys={toys}></Cart>)
+                                    data.slice(0, 3).map(toys => <Cart key={toys._id} toys={toys}></Cart>)
                                 }
                             </div>
                         </TabPanel>
                         <TabPanel>
-                        <div className=" grid grid-cols-2 gap-4">
+                        <div className=" grid grid-cols-3 gap-4">
                                 {
-                                    data.map(toys => <Cart key={toys._id} toys={toys}></Cart>)
+                                    data.slice(0, 3).map(toys => <Cart key={toys._id} toys={toys}></Cart>)
                                 }
                             </div>
                         </TabPanel>

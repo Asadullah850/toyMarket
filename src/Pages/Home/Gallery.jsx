@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import "./gallery.css";
 
 // import required modules
-import { Autoplay, EffectCoverflow, Pagination } from "swiper";
+import { Autoplay, EffectCoverflow } from "swiper";
 
 const Gallery = () => {
     
@@ -44,7 +44,7 @@ const Gallery = () => {
                 centeredSlides={true}
                 slidesPerView={"auto"}
                 autoplay={{
-                    delay: 1500,
+                    delay: 1000,
                     disableOnInteraction: false,
                 }}
                 coverflowEffect={{
@@ -55,7 +55,7 @@ const Gallery = () => {
                     slideShadows: true,
                 }}
                 pagination={true}
-                modules={[Autoplay, EffectCoverflow, Pagination]}
+                modules={[Autoplay, EffectCoverflow]}
                 className="mySwiper"
             >
                 {
