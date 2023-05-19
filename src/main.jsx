@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/viewPage/:id',
-        element: <ViewDetails></ViewDetails>,
+        element: <PrivetRoute><ViewDetails></ViewDetails></PrivetRoute>,
       },
     ],
     errorElement: <ErrorPage />,

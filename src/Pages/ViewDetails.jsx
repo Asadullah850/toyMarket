@@ -65,7 +65,8 @@ const ViewDetails = () => {
                         <div className='absolute bottom-0 text-lg rounded-full right-0 p-4 bg-yellow-300'>{rating}</div>
                     </p>
                     <div className=" text-end">
-                        <Link to='/allProducts'><button className="btn btn-primary ">All Toys</button></Link>
+                        <Link to='/allProducts'><button className="btn btn-primary mx-4">All Toys</button></Link>
+                        <Link to='/'><button className="btn btn-primary ">Home</button></Link>
                     </div>
                 </div>
             </div>
