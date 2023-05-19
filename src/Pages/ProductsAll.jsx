@@ -14,21 +14,9 @@ const ProductsAll = () => {
 
     const pageNumber = [...Array(totalPage).keys()]
 
-
-
     const [page, setPage] = useState(1)
     const [limit, setLimit] = useState(10)
 
-
-    // useEffect(() => {
-    //     fetch(`http://localhost:3000/allToys`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setAlltoys(data)
-    //             setloadng(false)
-
-    //         })
-    // }, [])
     useEffect(() => {
         async function fetchData() {
             const response = await fetch(`http://localhost:3000/toys?page=${currentPage}&limit=${itemsPerPage}`)
@@ -67,6 +55,7 @@ const ProductsAll = () => {
                         <th>Toy Name</th>
                         <th>Subcategory</th>
                         <th>Price</th>
+                        <th>Discount</th>
                         <th>Quantity</th>
                         <th>Color</th>
                         <th>View</th>

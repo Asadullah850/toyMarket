@@ -2,7 +2,7 @@ import React from 'react';
 import {  Link } from 'react-router-dom';
 
 const Table = ({ index, table }) => {
-    const { _id, productPrice, productName, productDescription, productImg, photoURL, displayName, email, discount, colors, category, Subcategory, AvailableQuantity } = table;
+    const { _id, productPrice, productName, displayName, email, discount, colors, Subcategory, AvailableQuantity } = table;
 
 
     return (
@@ -12,6 +12,8 @@ const Table = ({ index, table }) => {
             <td>{productName}</td>
             <td>{Subcategory}</td>
             <td>${productPrice}</td>
+            <td>{discount?.value}%</td>
+            
             <td>{AvailableQuantity} P</td>
             <td>
                 {

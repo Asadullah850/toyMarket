@@ -37,7 +37,7 @@ const MyToys = () => {
                     <tbody>
                         {/* row 1 */}
                        {
-                        myPost.map((post, index) => <MyToysRow index={index} key={post._id} post={post}></MyToysRow>)
+                        myPost.map((post, index) => <MyToysRow myPost={myPost} setMyPost={setMyPost} index={index} key={post._id} post={post}></MyToysRow>)
                        }
                     </tbody>
                 </table>

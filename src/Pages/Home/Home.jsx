@@ -10,6 +10,10 @@ const Home = () => {
     const [loading, setloadng] = useState(true)
     // console.log(allToys);
 
+    if (loading) {
+        <div className="radial-progress" style={{ "--value": "70", "--size": "12rem", "--thickness": "2px" }}>70%</div>
+    }
+
     useEffect(() => {
         fetch(`http://localhost:3000/allToys`)
             .then(res => res.json())

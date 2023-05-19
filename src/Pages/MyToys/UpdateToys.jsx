@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import Creatable, { useCreatable } from 'react-select/creatable';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Route/AuthProvider';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 
 const options = [
     { value: 'Red', label: 'Red' },
@@ -18,8 +18,8 @@ const discountPrice = [
 
 const UpdateToys = () => {
     const toys = useLoaderData();
+    const navigate = useNavigate();
     const { _id, productPrice, productName, productDescription, productImg, discount, photoURL, displayName, email, colors, category, Subcategory, AvailableQuantity, rating } = toys;
-    console.log(colors[0], colors[1]);
 
     const { user } = useContext(AuthContext);
     const [selectedOption, setSelectedOption] = useState(null)
@@ -61,8 +61,29 @@ const UpdateToys = () => {
                         icon: 'success',
                         title: 'Update Toy in successfully'
                     })
+                }else{
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 1000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Place Check Your Data Field'
+                    })
+                    return
+
                 }
+                
             })
+            navigate('/mytoys')
 
     }
 
@@ -137,7 +158,7 @@ const UpdateToys = () => {
                         {errors.exampleRequired && <p>* Required</p>}
                         <p>Previews Discount Value is - (
                             {
-                                colors.map(c=><span>{c.value},</span>)
+                                colors?.map(c=><span>{c.value},</span>)
                             }
                         )
                         </p>
@@ -158,7 +179,6 @@ const UpdateToys = () => {
                 <br />
                 {errors.exampleRequired && <p>* Required</p>}
                 <textarea defaultValue={productDescription} {...register("productDescription", { required: true })} className='w-[100%] border-2 border-blue-400 rounded p-2' ></textarea>
-
                 <input className='btn w-full btn-primary my-2 bottom-0 relative' type="submit" value={'Update'} />
             </form>
         </div>
