@@ -100,6 +100,40 @@ const Blog = () => {
                 </div>
             </div>
             {/* end */}
+            {/* end */}
+            <h1 className='text-xl p-2 my-2 border-2 border-y-blue-600'>Qu.4- <span className=' font-semibold text-2xl'>What is MongoDB aggregate and how does it work ?</span></h1>
+            <p>
+                <p className='text-xl p-2 mt-2 border-2 border-l-blue-600'>Answer :-</p> <br />
+                <p>
+                MongoDB aggregates a dofttools pipeline to search and compile the complex data present. It uses complex results by preparing and establishing queries in the MongoDB database through sequencing and information processing technology.
+                Aggregate work follows through an steps:
+                1.Building multiple execution pipelines: In an aggregate pipeline you can use a word implementation, which can usually be match, form, sort, limit, etc. movements.
+                2.Data Processing: Through the pipeline office you can process data, such as supplying data, changing data format, applying new filters, propagating field values, adding data, changing data, calculating sums, etc.
+                3. Preparing the output: After all the deadlines, the output is set which is sent to the client.
+                You can use the MongoDB Aggregate API (API) to process data by implementing all process aggregations and pipelines. Applying aggregate pipelines allows you to query complex data, file a data set, associate data, and perform other operations.
+                </p>
+            </p>
+            <div className="w-full ">
+                <img className='mx-auto my-4' src="https://i.ibb.co/9HyZtkp/Screenshot-179.png" alt="" srcset="" />
+            </div>
+            <div className="">
+                {/* bangla */}
+                <label htmlFor="my-modal-7" className="btn bg-blue-600">Bangla</label>
+
+                {/* Put this part before </body> tag */}
+                <input type="checkbox" id="my-modal-7" className="modal-toggle" />
+                <div className="modal">
+                    <div className="modal-box w-11/12 max-w-5xl">
+                        <p className="py-4">
+                            
+                        </p>
+                        <div className="modal-action">
+                            <label htmlFor="my-modal-7" className="btn">Close!</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* end */}
 
         </div>
     );
