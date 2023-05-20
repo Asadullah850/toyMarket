@@ -35,7 +35,7 @@ const UpdateToys = () => {
         data.colors = selectedOption
         data.discounts = discounts
 
-        fetch(`http://localhost:3000/products/${_id}`, {
+        fetch(`https://toyserver-two.vercel.app/products/${_id}`, {
             method: "PUT",
             headers: {
                 'Content-type': 'application/json'

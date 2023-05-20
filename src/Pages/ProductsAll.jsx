@@ -22,7 +22,7 @@ const ProductsAll = () => {
     useEffect(() => {
         
         async function fetchData() {
-            const response = await fetch(`http://localhost:3000/toys?page=${currentPage}&limit=${itemsPerPage}`)
+            const response = await fetch(`https://toyserver-two.vercel.app/toys?page=${currentPage}&limit=${itemsPerPage}`)
 
             const data = await response.json();
             setAlltoys(data)
@@ -32,7 +32,7 @@ const ProductsAll = () => {
 
 
     const handelsearch = (text) => {
-        fetch(`http://localhost:3000/search/${search}`)
+        fetch(`https://toyserver-two.vercel.app/search/${search}`)
             .then(res => res.json())
             .then(data => {
                 setAlltoys(data);

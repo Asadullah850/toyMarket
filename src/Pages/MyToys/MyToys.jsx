@@ -12,7 +12,7 @@ const MyToys = () => {
     const [myPost, setMyPost] = useState([])
 
 
-    const url = `http://localhost:3000/products?email=${user?.email}`;
+    const url = `https://toyserver-two.vercel.app/products?email=${user?.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

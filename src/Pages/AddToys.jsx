@@ -33,7 +33,7 @@ const AddToys = () => {
         data.colors = selectedOption
         data.discount = discount
 
-        fetch(`http://localhost:3000/products`, {
+        fetch(`https://toyserver-two.vercel.app/products`, {
             method: "POST",
             headers: {
                 'Content-type': 'application/json'

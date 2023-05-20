@@ -17,8 +17,7 @@ const Home = () => {
     const [category, setCategory] = useState("ToyCars")
     const [dollData, setDollData] = useState([]);
     const [categoryDoll, setCategoryDoll] = useState("Dolls")
-    const [ActionFigureData, setActionFigureData] = useState([]);
-    const [ActionFigureToys, setActionFigureToys] = useState("ActionFigureToys")
+
     // console.log(allToys);
 
     if (loading) {
@@ -26,7 +25,7 @@ const Home = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:3000/allToys`)
+        fetch(`https://toyserver-two.vercel.app/allToys`)
             .then(res => res.json())
             .then(data => {
                 setToysData(data)
@@ -36,7 +35,7 @@ const Home = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:3000/category/${category}`)
+        fetch(`https://toyserver-two.vercel.app/category/${category}`)
             .then((res) => res.json())
             .then((result) => {
                 setData(result);
@@ -45,7 +44,7 @@ const Home = () => {
     }, [category]);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/category/${categoryDoll}`)
+        fetch(`https://toyserver-two.vercel.app/category/${categoryDoll}`)
             .then((res) => res.json())
             .then((result) => {
                 setDollData(result)
@@ -53,15 +52,6 @@ const Home = () => {
             });
     }, [categoryDoll]);
     // Dolls
-    useEffect(() => {
-        fetch(`http://localhost:3000/category/${ActionFigureToys}`)
-            .then((res) => res.json())
-            .then((result) => {
-                setActionFigureData(result)
-                setLoading(false)
-            });
-    }, [ActionFigureToys]);
-    // ActionFigureToys
 
     AOS.init();
     return (
@@ -89,13 +79,6 @@ const Home = () => {
                 dollData.slice(4, 8).map(toys => <Cart toys={toys} key={toys._id}></Cart>)
             }
            </div>
-            <h1 className='text-2xl lg:text-4xl px-[2%] mx-2 my-10 underline text-blue-600'>Action Figure Toys</h1>
-           <div  data-aos="flip-up" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-             {
-                ActionFigureData.slice(4, 8).map(toys => <Cart toys={toys} key={toys._id}></Cart>)
-            }
-           </div>
-
            
         </div>
     );

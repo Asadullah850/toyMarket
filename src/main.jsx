@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       {
         path: '/allProducts',
         element: <ProductsAll></ProductsAll>,
-        loader:() => fetch(`http://localhost:3000/totalProducts`)
+        loader:() => fetch(`https://toyserver-two.vercel.app/totalProducts`)
       },
       {
         path: '/blog',
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element: <PrivetRoute><UpdateToys></UpdateToys></PrivetRoute>,
-        loader:({params})=>fetch(`http://localhost:3000/update/${params.id}`)
+        loader:({params})=>fetch(`https://toyserver-two.vercel.app/update/${params.id}`)
       },
     ],
     errorElement: <ErrorPage />,

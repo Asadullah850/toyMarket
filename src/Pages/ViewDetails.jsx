@@ -16,7 +16,7 @@ const ViewDetails = () => {
     // console.log(_id);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/allToys/${id}`)
+        fetch(`https://toyserver-two.vercel.app/allToys/${id}`)
             .then(res => res.json())
             .then(data => {
                 setData(data);
@@ -31,7 +31,7 @@ const ViewDetails = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:3000/products/${Subcategory}`)
+        fetch(`https://toyserver-two.vercel.app/products/${Subcategory}`)
             .then((res) => res.json())
             .then((result) => {
                 setLike(result);

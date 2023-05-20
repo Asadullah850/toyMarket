@@ -26,7 +26,7 @@ const Banner = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:3000/banner`)
+        fetch(`https://toyserver-two.vercel.app/banner`)
             .then(res => res.json())
             .then(data => {
                 setbannerData(data)

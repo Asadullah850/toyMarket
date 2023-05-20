@@ -27,7 +27,7 @@ const Gallery = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:3000/allToys`)
+        fetch(`https://toyserver-two.vercel.app/allToys`)
             .then(res => res.json())
             .then(data => {
                 setData(data)
