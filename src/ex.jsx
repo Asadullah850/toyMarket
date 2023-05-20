@@ -3,23 +3,6 @@ import React from 'react';
 const ex = () => {
     return (
         <div>
-            <p>
-                
-            </p>
-            <p>
-                
-            </p>
-            <p>
-                Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for building web applications. It is designed to be easy to use and learn, and it is highly extensible. Express.js is used by a wide range of developers, from small startups to large enterprises.
-                <br />
-                Nest.js is a framework for building scalable, enterprise-grade Node.js applications. It is built on top of Express.js, and it provides a number of additional features, such as dependency injection, routing, and templating. Nest.js is designed to be easy to use and maintain, and it is well-suited for building complex applications.
-            </p>
-            <p>What is express js? What is Nest JS ?</p>
-            <p>
-                Express.js একটি লাইটওয়েট ওয়েব অ্যাপ্লিকেশন ফ্রেমওয়ার্ক যা নোড.জেএস (Node.js) জন্য ব্যবহৃত হয়। এটি একটি মিনিমালিস্টিক ফ্রেমওয়ার্ক যা ওয়েব অ্যাপ্লিকেশন তৈরি করতে সাহায্য করে এবং রাউটিং, মিডলওয়্যার, টেমপ্লেট ইঞ্জিন, কেন্দ্রীয় কনফিগারেশন এবং অন্যান্য কার্যকারিতা প্রদান করে। Express.js সহজেই একটি সাধারণ ওয়েব সার্ভার বা API সার্ভার তৈরি করতে ব্যবহার করা যায়।
-                <br />
-                Nest.js হলো একটি মডার্ন, স্কেলাবল ওয়েব অ্যাপ্লিকেশন ফ্রেমওয়ার্ক যা Node.js জন্য ডেভেলপ করা হয়েছে। এটি Typescript অথবা Javascript ব্যবহার করে ইউজারফ্রেন্ডলি সিনট্যাক্স এবং মডিউলারিটি উপস্থাপন করে। Nest.js একটি বাটারিজেস স্টার্টার প্যাকেজ এবং স্কেলাবল আর্কিটেকচার প্রদান করে যা একটি প্রফেশনাল ওয়েব অ্যাপ্লিকেশন তৈরি করতে সাহ
-            </p>
             <p>What is MongoDB aggregate and how does it work ?</p>
             <p>
                 MongoDB aggregates a dofttools pipeline to search and compile the complex data present. It uses complex results by preparing and establishing queries in the MongoDB database through sequencing and information processing technology.
