@@ -3,19 +3,11 @@ import React from 'react';
 const ex = () => {
     return (
         <div>
-            
-            <p>What is an access token and refresh token? How do they work and where should we store them on the client-side?</p>
             <p>
-                An access token is a short-lived credential that is used to access protected resources. It is typically issued by an authorization server to a client application, such as a web browser or mobile app. Access tokens are typically used to access resources that are not publicly available, such as user data or private APIs.A refresh token is a long-lived credential that can be used to obtain new access tokens. It is typically issued by an authorization server to a client application, such as a web browser or mobile app. Refresh tokens are typically used to refresh access tokens that have expired or been revoked.
-                <span>Access tokens and refresh tokens work like this:</span>
-                User login gets access token and refresh token.
-                User authentication is confirmed by the access token and the given resources can be accessed.
-                When access token expires, get new access token by refresh token
-                Goes and collects. The refresh token is stored in a secure location. On each request, user authentication is checked using the access token and access to the resource is granted. When the application receives the request, the access token needs to be stored on the client side.
+                
             </p>
             <p>
-                একটি অ্যাক্সেস টোকেন হল একটি স্বল্পকালীন শংসাপত্র যা সুরক্ষিত সংস্থানগুলি অ্যাক্সেস করতে ব্যবহৃত হয়। এটি সাধারণত একটি অনুমোদন সার্ভার দ্বারা একটি ক্লায়েন্ট অ্যাপ্লিকেশনে জারি করা হয়, যেমন একটি ওয়েব ব্রাউজার বা মোবাইল অ্যাপ। অ্যাক্সেস টোকেনগুলি সাধারণত এমন সংস্থানগুলি অ্যাক্সেস করতে ব্যবহৃত হয় যা সর্বজনীনভাবে উপলব্ধ নয়, যেমন ব্যবহারকারীর ডেটা বা ব্যক্তিগত API।
-                একটি রিফ্রেশ টোকেন একটি দীর্ঘস্থায়ী শংসাপত্র যা নতুন অ্যাক্সেস টোকেন পেতে ব্যবহার করা যেতে পারে। এটি সাধারণত একটি অনুমোদন সার্ভার দ্বারা একটি ক্লায়েন্ট অ্যাপ্লিকেশনে জারি করা হয়, যেমন একটি ওয়েব ব্রাউজার বা মোবাইল অ্যাপ। রিফ্রেশ টোকেনগুলি সাধারণত এক্সেস টোকেনগুলিকে রিফ্রেশ করতে ব্যবহৃত হয় যা মেয়াদ শেষ হয়ে গেছে বা প্রত্যাহার করা হয়েছে৷
+                
             </p>
             <p>
                 Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for building web applications. It is designed to be easy to use and learn, and it is highly extensible. Express.js is used by a wide range of developers, from small startups to large enterprises.
