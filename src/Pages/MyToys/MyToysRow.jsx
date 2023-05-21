@@ -45,7 +45,7 @@ const MyToysRow = ({ post, index, myPost, setMyPost }) => {
             </th>
             <td className='text-center'>{productName}</td>
             <td className='text-center'>${productPrice}</td>
-            <td className='text-center'><span className='font-bold'>{discount}</span> %</td>
+            <td className='text-center'><span className='font-bold'>{discount?.value}</span> %</td>
             <td className='text-center'>{AvailableQuantity} P</td>
             <td className='text-center'>
                 <Link to={`/update/${_id}`}><button className='btn mx-2'>Edit</button></Link>

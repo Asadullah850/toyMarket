@@ -36,7 +36,7 @@ const AddToys = () => {
         fetch(`https://toyserver-two.vercel.app/products`, {
             method: "POST",
             headers: {
-                'Content-type': 'application/json'
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
         })

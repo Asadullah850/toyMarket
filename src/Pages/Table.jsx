@@ -12,7 +12,7 @@ const Table = ({ index, table }) => {
             <td>{productName}</td>
             <td>{Subcategory}</td>
             <td>${productPrice}</td>
-            <td>{discount}%</td>
+            <td>{discount?.value}%</td>
 
             <td>{AvailableQuantity} P</td>
             <td>

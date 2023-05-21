@@ -10,17 +10,21 @@ const ProductsAll = () => {
     const [currentPage, setCurrentPage] = useState(0)
     const { totalProducts } = useLoaderData();
     const [loading, setloadng] = useState(true)
-    console.log(totalProducts);
+    // console.log(totalProducts);
 
     if (loading) {
         <p>loading...............</p>
     }
+    if (totalProducts == null) {
+        <p>loading...............</p>
+        return totalProducts
+    }
 
     const itemsPerPage = 20;
     const totalPage = Math.ceil(totalProducts / itemsPerPage)
-
-
+   
     const pageNumber = [...Array(totalPage).keys()]
+   
 
     useEffect(() => {
         

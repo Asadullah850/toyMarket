@@ -7,6 +7,7 @@ import ShopByCategory from './ShopByCategory';
 import useTitle from '../../hooks/useTitle';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import SliderProducts from './SliderProducts';
 
 
 const Home = () => {
@@ -63,20 +64,24 @@ const Home = () => {
             </div>
             <Gallery></Gallery>
 
-            <h1 className='text-2xl lg:text-4xl px-[2%] mx-2 my-10 underline text-blue-600'>Cars Section</h1>
-           <div  data-aos="fade-right" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-             {
-                data.slice(0, 8).map(toys => <Cart toys={toys} key={toys._id}></Cart>)
-            }
-           </div>
-
            <h1 className='text-2xl lg:text-4xl px-[2%] mx-2 mt-10 text-center'>Shop by category</h1>
            <ShopByCategory></ShopByCategory>
 
             <h1 className='text-2xl lg:text-4xl px-[2%] mx-2 my-10 underline text-blue-600'>Doll Section</h1>
-           <div  data-aos="flip-left" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+           <div  data-aos="flip-left" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
              {
                 dollData.slice(4, 8).map(toys => <Cart toys={toys} key={toys._id}></Cart>)
+            }
+           </div>
+           <div data-aos="fade-right" className=" max-sm:hidden">
+           <h1 className='text-2xl lg:text-4xl px-[2%] mx-2 my-10 underline text-blue-600'>Slide Section</h1>
+           <SliderProducts></SliderProducts>
+           </div>
+           
+           <h1 className='text-2xl lg:text-4xl px-[2%] mx-2 my-10 underline text-blue-600'>Cars Section</h1>
+           <div  data-aos="fade-right" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+             {
+                data.slice(0, 8).map(toys => <Cart toys={toys} key={toys._id}></Cart>)
             }
            </div>
            
