@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Table = ({ index, table }) => {
     const { _id, productPrice, productName, displayName, email, discount, colors, Subcategory, AvailableQuantity } = table;
@@ -12,8 +12,8 @@ const Table = ({ index, table }) => {
             <td>{productName}</td>
             <td>{Subcategory}</td>
             <td>${productPrice}</td>
-            <td>{discount?.value}%</td>
-            
+            <td>{discount}%</td>
+
             <td>{AvailableQuantity} P</td>
             <td>
                 {
@@ -21,7 +21,7 @@ const Table = ({ index, table }) => {
                 }
             </td>
             <td><Link to={`/viewPage/${_id}`}><button className='btn'>View</button></Link></td>
-            
+
         </tr>
     );
 };

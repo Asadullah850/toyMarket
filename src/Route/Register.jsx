@@ -44,7 +44,7 @@ const Register = () => {
                 })
                 Toast.fire({
                     icon: 'success',
-                    title: 'Signed in successfully'
+                    title: 'Register successfully'
                 })
 
             })

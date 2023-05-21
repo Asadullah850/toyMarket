@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaRegUser } from "react-icons/fa";
 import { AuthContext } from '../Route/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 const Navbar = () => {
@@ -19,6 +20,17 @@ const Navbar = () => {
         logOut()
         .then(() => {
             // Sign-out successful.
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-center',
+                showConfirmButton: false,
+                timer: 800,
+                // timerProgressBar: true,
+            })
+            Toast.fire({
+                icon: 'success',
+                title: 'SignOut successfully'
+            })
           }).catch((error) => {
             // An error happened.
           });
@@ -63,7 +75,7 @@ const Navbar = () => {
                                 user ?
                                     <>
                                         <p>Name: {user.displayName || user.email}</p>
-                                        <Link to='/'>My Toys</Link>
+                                        <Link to='/mytoys'>My Toys</Link>
                                         <button onClick={userLogOut} >Logout</button>
                                     </>
                                     :

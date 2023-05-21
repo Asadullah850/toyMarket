@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Cart from '../Cart';
+import './styles.css';
 
 
 const ShopByCategory = () => {
     const [loading, setloadng] = useState(true)
     const [data, setData] = useState([]);
-    const [subCategory, setSubCategory] = useState("truck")
+    const [subCategory, setSubCategory] = useState("Cars")
 
     if (loading) {
         <p>loading....................</p>
@@ -30,16 +31,16 @@ const ShopByCategory = () => {
     return (
         <div className="">
             <Tabs forceRenderTabPanel defaultIndex={0}>
-                <TabList>
-                    <Tab onClick={() => handelSubCategoryChange("Cars")}>Toy Car</Tab>
-                    <Tab onClick={() => handelSubCategoryChange("avengers")}>ActionFigureToys</Tab>
-                    <Tab onClick={() => handelSubCategoryChange("barbie")}>Dolls</Tab>
+                <TabList >
+                    <Tab className={"tab"} onClick={() => handelSubCategoryChange("Cars")}>Toy Car</Tab>
+                    <Tab  className={"tab"} onClick={() => handelSubCategoryChange("avengers")}>ActionFigureToys</Tab>
+                    <Tab  className={"tab"} onClick={() => handelSubCategoryChange("barbie")}>Dolls</Tab>
                 </TabList>
                 <TabPanel>
                     <Tabs forceRenderTabPanel>
                         <TabList>
-                            <Tab onClick={() => handelSubCategoryChange("Cars")}>Sports Car</Tab>
-                            <Tab onClick={() => handelSubCategoryChange("truck")}>Truck</Tab>
+                            <Tab className={"tab"} onClick={() => handelSubCategoryChange("Cars")}>Sports Car</Tab>
+                            <Tab className={"tab"} onClick={() => handelSubCategoryChange("truck")}>Truck</Tab>
                         </TabList>
                         <TabPanel>
                             <div className=" grid grid-cols-3 gap-4">
@@ -61,8 +62,8 @@ const ShopByCategory = () => {
                 <TabPanel>
                     <Tabs forceRenderTabPanel>
                         <TabList>
-                            <Tab onClick={() => handelSubCategoryChange("avengers")}>Avengers</Tab>
-                            <Tab onClick={() => handelSubCategoryChange("transformers")}>Transformers</Tab>
+                            <Tab className={"tab"} onClick={() => handelSubCategoryChange("avengers")}>Avengers</Tab>
+                            <Tab className={"tab"} onClick={() => handelSubCategoryChange("transformers")}>Transformers</Tab>
                         </TabList>
                         <TabPanel>
                         <div className=" grid grid-cols-3 gap-4">
@@ -83,8 +84,8 @@ const ShopByCategory = () => {
                 <TabPanel>
                     <Tabs forceRenderTabPanel>
                         <TabList>
-                            <Tab onClick={() => handelSubCategoryChange("barbie")}>Barbie</Tab>
-                            <Tab onClick={() => handelSubCategoryChange("AmericanGirl")}>American girl</Tab>
+                            <Tab className={"tab"} onClick={() => handelSubCategoryChange("barbie")}>Barbie</Tab>
+                            <Tab className={"tab"} onClick={() => handelSubCategoryChange("AmericanGirl")}>American girl</Tab>
                         </TabList>
                         <TabPanel>
                         <div className=" grid grid-cols-3 gap-4">

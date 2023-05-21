@@ -68,4 +68,10 @@
     stroke-dasharray: 125.6;
     transform: rotate(-90deg);
   }
-  
+.tab{
+  background-color: #020254;
+  color: #eee;
+  border: #eee 1px solid;
+  border-radius: 4px;
+  /* text-align: center; */
+}

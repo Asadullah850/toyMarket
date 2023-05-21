@@ -29,6 +29,7 @@ const MyToys = () => {
                     <thead>
                         <tr className='text-center'>
                             <th></th>
+                            <th>Image</th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Discount</th>

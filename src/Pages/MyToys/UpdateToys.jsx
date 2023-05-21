@@ -5,107 +5,106 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../../Route/AuthProvider';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 
-const options = [
-    { value: 'Red', label: 'Red' },
-    { value: 'Orange', label: 'Orange' },
-    { value: 'White', label: 'White' },
-];
-const discountPrice = [
-    { value: '5', label: '5' },
-    { value: '10', label: '10' },
-    { value: '15', label: '15' },
-];
 
 const UpdateToys = () => {
     const toys = useLoaderData();
+    // console.log(toys);
+
     const navigate = useNavigate();
-    const { _id, productPrice, productName, productDescription, productImg, discount, photoURL, displayName, email, colors, category, Subcategory, AvailableQuantity, rating } = toys;
+    const { _id, productPrice, productName, productDescription, productImg, discount, photoURL, displayName, email, category, Subcategory, AvailableQuantity, rating } = toys;
 
     const { user } = useContext(AuthContext);
-    const [selectedOption, setSelectedOption] = useState(null)
-    const [discounts, setDiscount] = useState(null)
-
 
     const { register,
-        handleSubmit,
-        watch,
         formState: { errors }
     } = useForm();
     const onSubmit = data => {
-        data.colors = selectedOption
-        data.discounts = discounts
+        console.log(data);
 
+    }
+
+    const handelUpdate = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const productName = form.productName.value;
+        const productPrice = form.productPrice.value;
+        const productImg = form.productImg.value;
+        const rating = form.rating.value;
+        const category = form.category.value;
+        const Subcategory = form.Subcategory.value;
+        const discount = form.discount.value;
+        const AvailableQuantity = form.AvailableQuantity.value;
+        const productDescription = form.productDescription.value;
+        const formData = {
+            productName,
+            productPrice,
+            productImg,
+            rating,
+            category,
+            Subcategory,
+            discount,
+            AvailableQuantity,
+            productDescription
+
+        }
         fetch(`https://toyserver-two.vercel.app/products/${_id}`, {
-            method: "PUT",
+            method: 'PUT',
             headers: {
-                'Content-type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(formData)
         })
             .then(res => res.json())
             .then(results => {
                 if (results.modifiedCount > 0) {
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 1000,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                    })
-
-                    Toast.fire({
-                        icon: 'success',
-                        title: 'Update Toy in successfully'
-                    })
-                }else{
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 1000,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                    })
-
-                    Toast.fire({
-                        icon: 'error',
-                        title: 'Place Check Your Data Field'
-                    })
-                    return
-
-                }
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 1000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                }
+                            })
                 
+                            Toast.fire({
+                                icon: 'success',
+                                title: 'Update Toy in successfully'
+                            })
+                            navigate('/mytoys')
+                        } else {
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 1000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                }
+                            })
+                            return Toast.fire({
+                                icon: 'error',
+                                title: 'Place Check Your Data Field'
+                            })
+                
+                
+                        }
+                console.log(results);
             })
-            navigate('/mytoys')
-
+        console.log(formData)
     }
+
 
 
     return (
         <div className='w-[70%] mx-auto p-10 border-[2px] border-blue-200 rounded-lg'>
-            <form onSubmit={handleSubmit(onSubmit)} >
+            <form onSubmit={handelUpdate} >
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-2'>
                     <div className="">
-                        <div className="hidden">
-                            {
-                                user ?
-                                    <>
-                                        <input className=' border-2 border-blue-400 rounded p-2' defaultValue={`${user.displayName}`} {...register("displayName")} />
-                                        <input defaultValue={`${user.photoURL}`} className=' border-2 border-blue-400 rounded p-2' {...register("photoURL")} />
-                                        <input defaultValue={`${user.email}`} className=' border-2 border-blue-400 rounded p-2' {...register("email")} />
-                                    </>
-                                    :
-                                    <>
-                                    </>
-                            }
-                        </div>
                         <p>Product Name*</p>
                         {errors.exampleRequired && <p>* Required</p>}
                         <input defaultValue={productName} className=' border-2 border-blue-400 rounded p-2' {...register("productName", { required: true })} />
@@ -121,14 +120,6 @@ const UpdateToys = () => {
                         <p>Rating*</p>
                         {errors.exampleRequired && <p>* Required</p>}
                         <input defaultValue={rating} type='text' className=' border-2 border-blue-400 rounded p-2' {...register("rating", { required: true })} />
-                        <br />
-                        <p>Discount %</p>
-                        <p>Previews Discount Value is {discount?.value} </p>
-                        <Creatable className=' border-2 border-blue-400 rounded p-2'
-                            defaultValue={selectedOption}
-                            onChange={setDiscount}
-                            options={discountPrice}
-                        />
                     </div>
                     <div className="">
                         <p>Category*</p>
@@ -152,22 +143,10 @@ const UpdateToys = () => {
                             <option value="barbie">Barbie</option>
                             <option value="AmericanGirl">American girl</option>
                         </select>
-
                         <br />
-                        <p>Colors*</p>
-                        {errors.exampleRequired && <p>* Required</p>}
-                        <p>Previews Discount Value is - (
-                            {
-                                colors?.map(c=><span>{c.value},</span>)
-                            }
-                        )
-                        </p>
-                        <Creatable className=' border-2 border-blue-400 rounded p-2'
-                            defaultValue={selectedOption}
-                            onChange={setSelectedOption}
-                            options={options}
-                            isMulti
-                        />
+                        <p>Discount %</p>
+                        <p>Previews Discount Value is {discount?.value} </p>
+                        <input type='text' className=' border-2 border-blue-400 rounded p-2' {...register("discount")} />
                         <br />
                         <p>Available Quantity*</p>
                         {errors.exampleRequired && <p>* Required</p>}
@@ -179,7 +158,8 @@ const UpdateToys = () => {
                 <br />
                 {errors.exampleRequired && <p>* Required</p>}
                 <textarea defaultValue={productDescription} {...register("productDescription", { required: true })} className='w-[100%] border-2 border-blue-400 rounded p-2' ></textarea>
-                <input className='btn w-full btn-primary my-2 bottom-0 relative' type="submit" value={'Update'} />
+                {/* <input  type="submit" value={'Update'} /> */}
+                <button className='btn w-full btn-primary my-2 bottom-0 relative'  type='submit'>submit</button>
             </form>
         </div>
     );
