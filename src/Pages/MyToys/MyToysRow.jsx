@@ -48,8 +48,8 @@ const MyToysRow = ({ post, index, myPost, setMyPost }) => {
             <td className='text-center'><span className='font-bold'>{discount?.value}</span> %</td>
             <td className='text-center'>{AvailableQuantity} P</td>
             <td className='text-center'>
-                <Link to={`/update/${_id}`}><button className='btn mx-2'>Edit</button></Link>
-                <button onClick={() => handelDelete(_id)} className='btn'>Delete</button>
+                <Link to={`/update/${_id}`}><button className='btn mx-2 btn-primary'>Edit</button></Link>
+                <button onClick={() => handelDelete(_id)} className='btn btn-primary'>Delete</button>
             </td>
         </tr>
     );

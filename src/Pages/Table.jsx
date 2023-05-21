@@ -20,7 +20,7 @@ const Table = ({ index, table }) => {
                     colors?.map((td, index) => <p key={index}>{td.value}</p>)
                 }
             </td>
-            <td><Link to={`/viewPage/${_id}`}><button className='btn'>View</button></Link></td>
+            <td><Link to={`/viewPage/${_id}`}><button className='btn btn-primary'>View</button></Link></td>
 
         </tr>
     );

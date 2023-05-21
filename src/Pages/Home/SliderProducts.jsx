@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FaRegHeart, FaHeart } from "react-icons/fa";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -10,14 +8,12 @@ import { Rating } from '@smastrom/react-rating'
 import "./gallery.css";
 // import required modules
 import { Autoplay, EffectCoverflow, Pagination } from "swiper";
-import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 
 const SliderProducts = () => {
 
     const [loading, setloadng] = useState(true);
     const [galleryData, setData] = useState([]);
-    const [wishlist, setWishlist] = useState(true)
 
     useEffect(() => {
         fetch(`https://toyserver-two.vercel.app/allToys`)
