@@ -18,6 +18,7 @@ import ViewDetails from './Pages/ViewDetails';
 import MyToys from './Pages/MyToys/MyToys';
 import UpdateToys from './Pages/MyToys/UpdateToys';
 import Blog from './Blog';
+import AboutUs from './Pages/AboutUs';
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: '/viewPage/:id',
         element: <PrivetRoute><ViewDetails></ViewDetails></PrivetRoute>,
+      },
+      {
+        path: '/about',
+        element: <AboutUs></AboutUs>,
       },
       {
         path: '/update/:id',

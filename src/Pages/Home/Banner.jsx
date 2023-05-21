@@ -61,7 +61,7 @@ const Banner = () => {
                         <div className=" absolute w-full bottom-10">
                             <p className='lg:mb-10 w-full lg:text-4xl md:text-4xl text-xl text-pink-800 font-semibold text-start px-[10%]'>{banner.productName}</p>
                             <div className="text-start lg:ml-20 ml-4">
-                                <span className='btn btn-secondary lg:px-10 lg:mx-4 mx-2 font-extrabold text-4xl'> {banner.discount?.value}%</span>
+                                <span className=' bg-[#0021c4] text-white rounded-md lg:px-10 lg:mx-4 mx-2 font-extrabold text-4xl'> {banner.discount?.value}%</span>
                             </div>
                         </div>
                     </SwiperSlide>)

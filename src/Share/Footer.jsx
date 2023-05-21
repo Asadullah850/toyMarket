@@ -20,7 +20,7 @@ const Footer = () => {
             </div>
             <footer className="footer footer-center  p-10 bg-slate-950 text-white  rounded">
                 <div className="grid grid-flow-col gap-4">
-                    <a className="link link-hover">About us</a>
+                    <Link to='/about' className="link link-hover">About us</Link>
                     <a className="link link-hover">Contact</a>
                     <a className="link link-hover">Jobs</a>
                 </div>

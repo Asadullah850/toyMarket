@@ -32,6 +32,10 @@ const AddToys = () => {
     const onSubmit = data => {
         data.colors = selectedOption
         data.discount = discount
+        if (typeof data.discount === 'string') {
+            console.log(discount);
+            return data.discount == null
+          }
 
         fetch(`https://toyserver-two.vercel.app/products`, {
             method: "POST",
